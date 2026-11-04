@@ -344,7 +344,9 @@ The removal functions are included for future cleanup workflows but are not call
 Copy-Item .\genAD.ps1 -ToSession $dc C:\Windows\Tasks\
 
 Copy-Item .\op.json -ToSession $dc C:\Windows\Tasks\
+```
 
+```
 Enter-PSSession $dc
 
 cd C:\Windows\Tasks\
@@ -355,6 +357,8 @@ cd C:\Windows\Tasks\
 ### DC: Execute provisioning
 
 ```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+
 .\genAD.ps1 .\op.json
 ```
 
